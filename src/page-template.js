@@ -4,10 +4,6 @@ const generateProfiles = inputData => {
 }
 
 
-
-
-
-
 return `
 
 <!DOCTYPE html>
