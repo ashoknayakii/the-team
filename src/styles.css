@@ -14,5 +14,14 @@ header h1 {
     font-weight: bolder;
 }
 
+.card {
+    margin-top: 35px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.card-body {
+    background-color: lightskyblue;
+}
+
 
 
