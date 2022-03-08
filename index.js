@@ -1,10 +1,9 @@
 const inquirer = require('inquirer');
-const Employee = require('../lib/Employee');
+const Employee = require('./lib/Employee');
 
-function createTeam() {
+const createTeam = () => {
     console.log('Build your Team!');
-
-    inquirer.prompt([
+    return inquirer.prompt([
         {
             type: "input",
             name: "name",
@@ -46,9 +45,11 @@ function createTeam() {
 
 
     ]).then(answers => {
-        const emp1 = new Employee(answers.employeeName, answers.employeeId, answers,employeeEmail);
+        const emp1 = new Employee(answers.employeeName, answers.employeeId, answers.employeeEmail);
         console.log(emp1);
         console.log(emp1.getName());
 
     })
 };
+
+createTeam();
