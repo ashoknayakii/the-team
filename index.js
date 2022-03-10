@@ -2,6 +2,9 @@ const inquirer = require('inquirer');
 const Employee = require('./lib/Employee');
 const fs = require('fs');
 
+
+// Update this function to build a manager and ask manager specific questions therefore office number at the end
+
 const firstQuestions = () => {
     console.log('Build your team!');
     return inquirer.prompt([
@@ -53,7 +56,8 @@ const firstQuestions = () => {
 };
 
 firstQuestions();
-
+// Create a menu function to allow user to select which type of employee to create.  This function routes to other functions either Engineer or Intern in which you will
+// ask all 3 questions again and individual question again.
 // Create a function to get the role that we're assigning to the new employee with a checkbox question
 
 const getRole = () => {
@@ -78,7 +82,7 @@ validate: roleInput => {
 }
 
 getRole();
-
+// After engineer return to menu function.  
 // How to connect this step to conditional questions for Manager, Intern, and Engineer?
 
 const checkRole = () => {
