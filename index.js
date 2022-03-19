@@ -2,6 +2,7 @@ const inquirer = require('inquirer');
 const Employee = require('./lib/Employee');
 const fs = require('fs');
 // Create an empty array in which to place answers
+const teamMember = []
 
 // Update this function to build a manager and ask manager specific questions therefore office number at the end
 
@@ -14,6 +15,7 @@ const firstQuestions = () => {
         name: "name",
         message: "What is the employee's full name?",
         validate: answer => {
+            console.log(answer)
             if (!answer) {
                 return "Please enter at least one value."
             }
@@ -46,11 +48,47 @@ const firstQuestions = () => {
             return true;
         }
     },
+    {
+        type: "input",
+        name: "manager.office",
+        message: "What is the employee's office number?",
+        validate: answer => {
+            if (!answer) {
+                return "Please enter at least one value."
+            }
+            return true;
+        }
+    },
+    {
+        type: 'checkbox',
+        name: 'role',
+        message: 'What role will your new employee assume or have you finished building your team?',
+        choices: ['Engineer', 'Intern', 'Finished Building Team'],
+    },
+    {
+        type: "input",
+        name: "engineer.github",
+        message: "What is the employee's github address?",
+        when(answers) {
+            return answers.role === "Engineer"
+        }
+        
+    },
+    {
+        type: "input",
+        name: "intern.school",
+        message: "What school did the intern attend?",
+        when(answers) {
+            return answers.role === "Intern"
+        }
+    }
+
+
 
 ]).then(answers => { 
-        const emp1 = new Employee(answers.employeeName, answers.employeeId, answers.employeeEmail);
+        const emp1 = new Employee(answers.name, answers.id, answers.email, answers.office, answers.role, );
         console.log(emp1);
-        console.log(emp1.getName());
+        console.log(emp1.firstQuestions());
 
     })
 };
@@ -61,26 +99,25 @@ firstQuestions();
 // ask all 3 questions again and individual question again.
 // Create a function to get the role that we're assigning to the new employee with a checkbox question
 
-// const getRole = () => {
-//     return inquirer.prompt([
+const engineerQuestions = () => {
+    return inquirer.prompt([
+  
+    {
+        
+    },
+    
 
-// {
-// type: 'checkbox',
-// name: 'role',
-// message: 'What role will your new employee assume?',
-// choices: ['Engineer', 'Manager', 'Intern'],
-// validate: roleInput => {
-//     if(roleInput) {
-//         return true
-//     } else {
-//         console.log ('You must enter a role for your new team member')
-//     }
-// }
+]).then(answers => { 
+        const eng1 = new Employee(answers.github);
+        console.log(eng1);
+        console.log(engineerQuestions());
 
-// },
+    })
+};
 
-// ])
-// }
+
+// managerQuestions = () =>
+
 
 // getRole();
 // After engineer return to menu function.  
