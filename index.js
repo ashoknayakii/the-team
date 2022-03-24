@@ -84,7 +84,6 @@ const firstQuestions = () => {
     }
 
 
-
 ]).then(answers => { 
         const emp1 = new Employee(answers.name, answers.id, answers.email, answers.office, answers.role, );
         console.log(emp1);
