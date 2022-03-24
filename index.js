@@ -63,31 +63,33 @@ const firstQuestions = () => {
         type: 'checkbox',
         name: 'role',
         message: 'What role will your new employee assume or have you finished building your team?',
-        choices: ['Engineer', 'Intern', 'Finished Building Team'],
+        choices: ['Engineer', 'Intern', 'Finished Building Team']
     },
-    {
-        type: "input",
-        name: "engineer.github",
-        message: "What is the employee's github address?",
-        when(answers) {
-            return answers.role === "Engineer"
-        }
+    // {
+    //     type: "input",
+    //     name: "engineer.github",
+    //     message: "What is the employee's github address?",
+    //     when(answers) {
+    //         return answers.role === "Engineer"
+    //     }
         
-    },
-    {
-        type: "input",
-        name: "intern.school",
-        message: "What school did the intern attend?",
-        when(answers) {
-            return answers.role === "Intern"
-        }
-    }
+    // },
+    // {
+    //     type: "input",
+    //     name: "intern.school",
+    //     message: "What school did the intern attend?",
+    //     when(answers) {
+    //         return answers.role === "Intern"
+    //     }
+    // }
 
 
 ]).then(answers => { 
-        const emp1 = new Employee(answers.name, answers.id, answers.email, answers.office, answers.role, );
+        // const emp1 = new Employee(answers.name, answers.id, answers.email, answers.office, answers.role);
         console.log(emp1);
-        console.log(emp1.firstQuestions());
+        // Check to see if answers.role = engineer like line 73 then ask new set of questions 
+        // Switch statement to set up the structure of the role questions
+        // console.log(emp1.firstQuestions());
 
     })
 };
