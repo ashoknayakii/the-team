@@ -12,10 +12,8 @@ const generateProfiles = teamArr => {
         <ul class="list-group list-group-flush">
         <li class="list-group-item">ID: ${manager.getId()}</li>
         <li class="list-group-item">office number: ${manager.getOfficeNumber()}</li>
+        <a href="${manager.getEmail()}" class="list-group-item">Email: ${manager.getEmail()}</a>
         </ul>
-        <div class="card-body">
-        <a href="${manager.getEmail()}" class="card-link">email:${manager.getEmail()}</a>
-        </div>
         </div> 
         `
     }
@@ -29,10 +27,8 @@ const generateProfiles = teamArr => {
         <ul class="list-group list-group-flush">
         <li class="list-group-item">ID: ${intern.getId()}</li>
         <li class="list-group-item">school attended: ${intern.getSchool()}</li>
+          <a href="${intern.getEmail()}" class="list-group-item">Email: ${intern.getEmail()}</a>
         </ul>
-        <div class="card-body">
-          <a href="${intern.getEmail()}" class="card-link">email:${intern.getEmail()}</a>
-        </div>
         </div>
         `
     }
@@ -45,11 +41,9 @@ const generateProfiles = teamArr => {
         </div>
         <ul class="list-group list-group-flush">
         <li class="list-group-item">ID: ${engineer.getId()}</li>
+        <a href="${engineer.getEmail()}" class="list-group-item">Email: ${engineer.getEmail()}</a>
+        <a href="${engineer.getGithub()}" class="list-group-item">Github: ${engineer.getGithub()}</a>
         </ul>
-        <div class="card-body">
-        <a href="${engineer.getEmail()}" class="card-link">email: ${engineer.getEmail()}</a>
-        <a href="${engineer.getGithub()}" class="card-link">github: ${engineer.getGithub()}</a>
-        </div>
         </div>
         `
     }
