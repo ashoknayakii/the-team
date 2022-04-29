@@ -3,37 +3,52 @@ const Employee = require("../lib/Employee")
 const generateProfiles = teamArr => {
 
     const managerCard = manager => {
-        return ` 
+        return `
+        <div class="card" style="width: 18rem;">
         <div class="card-body">
         <h5 class="card-title">${manager.getName()}</h5>
         <p class="card-text">${manager.getRole()}</p>
-        <p>ID:${manager.getId()}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item">ID: ${manager.getId()}</li>
+        <li class="list-group-item">office number: ${manager.getOfficeNumber()}</li>
+        </ul>
+        <div class="card-body">
         <a href="${manager.getEmail()}" class="card-link">email:${manager.getEmail()}</a>
-        <p>office number:${manager.getOfficeNumber()}</p>
         </div>
-        </div>
+        </div> 
         `
     }
     const internCard = intern => {
         return `
-        <div class='card-body'> 
-        <h5 class='card-title'>${intern.getName()}</h2>
-        <p class='card-text'>${intern.getRole()}</p>
-        <p>ID:${intern.getId()}</p>
-        <p>school attended:${intern.getSchool()}</p>
-        <a href="${intern.getEmail()}" class="card-link">email:${intern.getEmail()}</a>
+        <div class="card" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title">${intern.getName()}</h5>
+        <p class="card-text">${intern.getRole()}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item">ID: ${intern.getId()}</li>
+        <li class="list-group-item">school attended: ${intern.getSchool()}</li>
+        </ul>
+        <div class="card-body">
+          <a href="${intern.getEmail()}" class="card-link">email:${intern.getEmail()}</a>
         </div>
         </div>
         `
     }
     const engineerCard = engineer => {
         return `
-        <div class='card-body'> 
-        <h5 class='card-title'>${engineer.getName()}</h2>
-        <p class='card-text'>${engineer.getRole()}</p>
-        <p>ID:${engineer.getId()}</p>
-        <a href="${engineer.getEmail()}" class="card-link">email:${engineer.getEmail()}</a>
-        <a href="${engineer.getGithub()}" class="card-link">github:${engineer.getGithub()}</a>
+        <div class="card" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title">${engineer.getName()}</h5>
+        <p class="card-text">${engineer.getRole()}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item">ID: ${engineer.getId()}</li>
+        </ul>
+        <div class="card-body">
+        <a href="${engineer.getEmail()}" class="card-link">email: ${engineer.getEmail()}</a>
+        <a href="${engineer.getGithub()}" class="card-link">github: ${engineer.getGithub()}</a>
         </div>
         </div>
         `
@@ -77,11 +92,9 @@ module.exports = teamArr => {
          <header>
              <h1>My Team</h1>
          </header>
-         <main class="container col-12 col-lg-9 d-flex flex-column">
-             <div class="card m-5 row justify-content-around" style="width: 18rem;">
+         <main class="row">
+             <div class="container d-flex justify-content-around">
 ${generateProfiles(teamArr)}
-</div>
-</div>
 </div>
 </main>
 </body>
@@ -89,7 +102,6 @@ ${generateProfiles(teamArr)}
 </html>
 `
 }
-
 
 
 
