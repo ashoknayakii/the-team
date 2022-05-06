@@ -61,8 +61,8 @@ const buildManager = () => {
             name: "office",
             message: "What is the employee's office number?",
             validate: answer => {
-                if (!answer) {
-                    return "Please enter at least one value."
+                if (isNaN(answer)) {
+                    return "Please enter a numeric value."
                 }
                 return true;
             }
@@ -156,7 +156,13 @@ const engineerQuestion = () => {
 
             type: "input",
             name: "github",
-            message: "What is the engineer's github address?",
+            message: "What is the engineer's github username?",
+            validate: answer => {
+                if(!answer) {
+                    return "The engineer is required to have a valid github address."
+                }
+                return true;
+            }
 
         }
 
