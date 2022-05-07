@@ -4,7 +4,9 @@
 The application allows a team leader to keep track of a team of engineers and interns as well as giving some basic information for them.
 
 ### Programming Languages
-* ES6 
+* ES6
+* CSS
+* Bootstrap 
 * Node
 
 ## Usage
